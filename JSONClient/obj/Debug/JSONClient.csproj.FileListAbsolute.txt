@@ -1,0 +1,15 @@
+D:\workspace\Cs\JSONClient\JSONClient\bin\Debug\JSONClient.exe.config
+D:\workspace\Cs\JSONClient\JSONClient\bin\Debug\JSONClient.exe
+D:\workspace\Cs\JSONClient\JSONClient\bin\Debug\JSONClient.pdb
+D:\workspace\Cs\JSONClient\JSONClient\obj\Debug\JSONClient.csprojAssemblyReference.cache
+D:\workspace\Cs\JSONClient\JSONClient\obj\Debug\JSONClient.MainForm.resources
+D:\workspace\Cs\JSONClient\JSONClient\obj\Debug\JSONClient.Properties.Resources.resources
+D:\workspace\Cs\JSONClient\JSONClient\obj\Debug\JSONClient.csproj.GenerateResource.cache
+D:\workspace\Cs\JSONClient\JSONClient\obj\Debug\JSONClient.csproj.CoreCompileInputs.cache
+D:\workspace\Cs\JSONClient\JSONClient\obj\Debug\JSONClient.exe
+D:\workspace\Cs\JSONClient\JSONClient\obj\Debug\JSONClient.pdb
+D:\workspace\Cs\JSONClient\JSONClient\bin\Debug\Newtonsoft.Json.dll
+D:\workspace\Cs\JSONClient\JSONClient\bin\Debug\Newtonsoft.Json.pdb
+D:\workspace\Cs\JSONClient\JSONClient\bin\Debug\Newtonsoft.Json.xml
+D:\workspace\Cs\JSONClient\JSONClient\obj\Debug\JSONClient.csproj.CopyComplete
+D:\workspace\Cs\JSONClient\JSONClient\obj\Debug\JSONClient.JsonPropertyForm.resources
