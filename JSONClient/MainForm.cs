@@ -63,11 +63,20 @@ namespace JSONClient {
         }
 
         private void addPropertyButton_Click(object sender, EventArgs e) {
+            if (currentJsonView.SelectedItems.Count > 0) {
+                ListViewItem item = currentJsonView.SelectedItems[0];
+                JsonPropertyForm form = new JsonPropertyForm();
+                form.ShowDialog();
+            } else {
+                
+            }
+
+            /*
             JsonPropertyForm form = new JsonPropertyForm();
-            form.ShowDialog();
+            form.ShowDialog();*/
         }
 
-        private void RefreshSendJsonView() {
+        private void RefreshCurrentJsonView() {
 
         }
     }

@@ -26,11 +26,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.nameInput = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.doubleType = new System.Windows.Forms.RadioButton();
+            this.intType = new System.Windows.Forms.RadioButton();
             this.stringType = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.valueInput = new System.Windows.Forms.TextBox();
-            this.intType = new System.Windows.Forms.RadioButton();
-            this.doubleType = new System.Windows.Forms.RadioButton();
             this.okButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +63,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Property Type";
             // 
+            // doubleType
+            // 
+            this.doubleType.AutoSize = true;
+            this.doubleType.Location = new System.Drawing.Point(6, 64);
+            this.doubleType.Name = "doubleType";
+            this.doubleType.Size = new System.Drawing.Size(61, 16);
+            this.doubleType.TabIndex = 5;
+            this.doubleType.Text = "double";
+            this.doubleType.UseVisualStyleBackColor = true;
+            // 
+            // intType
+            // 
+            this.intType.AutoSize = true;
+            this.intType.Location = new System.Drawing.Point(6, 42);
+            this.intType.Name = "intType";
+            this.intType.Size = new System.Drawing.Size(36, 16);
+            this.intType.TabIndex = 4;
+            this.intType.Text = "int";
+            this.intType.UseVisualStyleBackColor = true;
+            // 
             // stringType
             // 
             this.stringType.AutoSize = true;
@@ -91,26 +111,6 @@
             this.valueInput.Size = new System.Drawing.Size(100, 21);
             this.valueInput.TabIndex = 5;
             // 
-            // intType
-            // 
-            this.intType.AutoSize = true;
-            this.intType.Location = new System.Drawing.Point(6, 42);
-            this.intType.Name = "intType";
-            this.intType.Size = new System.Drawing.Size(36, 16);
-            this.intType.TabIndex = 4;
-            this.intType.Text = "int";
-            this.intType.UseVisualStyleBackColor = true;
-            // 
-            // doubleType
-            // 
-            this.doubleType.AutoSize = true;
-            this.doubleType.Location = new System.Drawing.Point(6, 64);
-            this.doubleType.Name = "doubleType";
-            this.doubleType.Size = new System.Drawing.Size(61, 16);
-            this.doubleType.TabIndex = 5;
-            this.doubleType.Text = "double";
-            this.doubleType.UseVisualStyleBackColor = true;
-            // 
             // okButton
             // 
             this.okButton.Location = new System.Drawing.Point(245, 6);
@@ -133,6 +133,7 @@
             this.Controls.Add(this.label1);
             this.Name = "JsonPropertyForm";
             this.Text = "JsonPropertyForm";
+            this.Load += new System.EventHandler(this.JsonPropertyForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
