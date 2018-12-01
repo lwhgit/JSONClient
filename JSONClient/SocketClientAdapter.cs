@@ -43,6 +43,8 @@ namespace JSONClient {
         }
 
         public void Disconnect() {
+            connectThread.Interrupt();
+            dataReceiveThread.Interrupt();
             Thread thread = new Thread(delegate () {
                 socketClient.Disconnect();
             });

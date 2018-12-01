@@ -28,7 +28,7 @@
             this.ipInput = new System.Windows.Forms.TextBox();
             this.portInput = new System.Windows.Forms.TextBox();
             this.connectButton = new System.Windows.Forms.Button();
-            this.savedJsonList = new System.Windows.Forms.ListBox();
+            this.savedJsonListView = new System.Windows.Forms.ListBox();
             this.eventLogView = new System.Windows.Forms.TextBox();
             this.disconnectButton = new System.Windows.Forms.Button();
             this.addPropertyButton = new System.Windows.Forms.Button();
@@ -89,14 +89,16 @@
             this.connectButton.UseVisualStyleBackColor = true;
             this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
             // 
-            // savedJsonList
+            // savedJsonListView
             // 
-            this.savedJsonList.FormattingEnabled = true;
-            this.savedJsonList.ItemHeight = 12;
-            this.savedJsonList.Location = new System.Drawing.Point(243, 10);
-            this.savedJsonList.Name = "savedJsonList";
-            this.savedJsonList.Size = new System.Drawing.Size(110, 208);
-            this.savedJsonList.TabIndex = 7;
+            this.savedJsonListView.FormattingEnabled = true;
+            this.savedJsonListView.ItemHeight = 12;
+            this.savedJsonListView.Location = new System.Drawing.Point(243, 10);
+            this.savedJsonListView.Name = "savedJsonListView";
+            this.savedJsonListView.Size = new System.Drawing.Size(110, 208);
+            this.savedJsonListView.TabIndex = 7;
+            this.savedJsonListView.SelectedIndexChanged += new System.EventHandler(this.savedJsonListView_SelectedIndexChanged);
+            this.savedJsonListView.DoubleClick += new System.EventHandler(this.savedJsonListView_DoubleClick);
             // 
             // eventLogView
             // 
@@ -137,6 +139,7 @@
             this.sendButton.TabIndex = 14;
             this.sendButton.Text = "S";
             this.sendButton.UseVisualStyleBackColor = true;
+            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
             // 
             // currentJsonView
             // 
@@ -145,11 +148,13 @@
             this.propertyValue,
             this.propertyType});
             this.currentJsonView.Location = new System.Drawing.Point(359, 224);
+            this.currentJsonView.MultiSelect = false;
             this.currentJsonView.Name = "currentJsonView";
             this.currentJsonView.Size = new System.Drawing.Size(225, 218);
             this.currentJsonView.TabIndex = 17;
             this.currentJsonView.UseCompatibleStateImageBehavior = false;
             this.currentJsonView.View = System.Windows.Forms.View.Details;
+            this.currentJsonView.DoubleClick += new System.EventHandler(this.currentJsonView_DoubleClick);
             // 
             // propertyName
             // 
@@ -173,6 +178,7 @@
             this.removePropertyButton.TabIndex = 18;
             this.removePropertyButton.Text = "-";
             this.removePropertyButton.UseVisualStyleBackColor = true;
+            this.removePropertyButton.Click += new System.EventHandler(this.removePropertyButton_Click);
             // 
             // savedJsonView
             // 
@@ -213,17 +219,19 @@
             this.Controls.Add(this.addPropertyButton);
             this.Controls.Add(this.disconnectButton);
             this.Controls.Add(this.eventLogView);
-            this.Controls.Add(this.savedJsonList);
+            this.Controls.Add(this.savedJsonListView);
             this.Controls.Add(this.connectButton);
             this.Controls.Add(this.portInput);
             this.Controls.Add(this.ipInput);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,7 +244,7 @@
         private System.Windows.Forms.TextBox ipInput;
         private System.Windows.Forms.TextBox portInput;
         private System.Windows.Forms.Button connectButton;
-        private System.Windows.Forms.ListBox savedJsonList;
+        private System.Windows.Forms.ListBox savedJsonListView;
         private System.Windows.Forms.TextBox eventLogView;
         private System.Windows.Forms.Button disconnectButton;
         private System.Windows.Forms.Button addPropertyButton;

@@ -52,17 +52,21 @@ namespace JSONClient {
         public void DataReceiveCorutine() {
             int bufferSize = 0;
             while (true) {
-                if (socket != null) {
-                    bufferSize = socket.Available;
-                    if (bufferSize > 0) {
-                        byte[] buffer = new byte[bufferSize];
-                        socket.Receive(buffer);
-                        if (eventListener != null) {
-                            eventListener.OnData(buffer);
+                try {
+                    if (socket != null) {
+                        bufferSize = socket.Available;
+                        if (bufferSize > 0) {
+                            byte[] buffer = new byte[bufferSize];
+                            socket.Receive(buffer);
+                            if (eventListener != null) {
+                                eventListener.OnData(buffer);
+                            }
                         }
                     }
+                    Thread.Sleep(50);
+                } catch (Exception) {
+
                 }
-                Thread.Sleep(50);
             }
         }
         
