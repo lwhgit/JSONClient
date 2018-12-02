@@ -42,6 +42,11 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.receivedDataListView = new System.Windows.Forms.ListBox();
+            this.receivedDataView = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -93,7 +98,7 @@
             // 
             this.savedJsonListView.FormattingEnabled = true;
             this.savedJsonListView.ItemHeight = 12;
-            this.savedJsonListView.Location = new System.Drawing.Point(243, 10);
+            this.savedJsonListView.Location = new System.Drawing.Point(242, 83);
             this.savedJsonListView.Name = "savedJsonListView";
             this.savedJsonListView.Size = new System.Drawing.Size(110, 208);
             this.savedJsonListView.TabIndex = 7;
@@ -103,11 +108,11 @@
             // eventLogView
             // 
             this.eventLogView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.eventLogView.Location = new System.Drawing.Point(14, 64);
+            this.eventLogView.Location = new System.Drawing.Point(14, 83);
             this.eventLogView.Multiline = true;
             this.eventLogView.Name = "eventLogView";
             this.eventLogView.ReadOnly = true;
-            this.eventLogView.Size = new System.Drawing.Size(223, 381);
+            this.eventLogView.Size = new System.Drawing.Size(223, 435);
             this.eventLogView.TabIndex = 9;
             // 
             // disconnectButton
@@ -123,7 +128,7 @@
             // 
             // addPropertyButton
             // 
-            this.addPropertyButton.Location = new System.Drawing.Point(590, 224);
+            this.addPropertyButton.Location = new System.Drawing.Point(589, 310);
             this.addPropertyButton.Name = "addPropertyButton";
             this.addPropertyButton.Size = new System.Drawing.Size(25, 25);
             this.addPropertyButton.TabIndex = 12;
@@ -133,7 +138,7 @@
             // 
             // sendButton
             // 
-            this.sendButton.Location = new System.Drawing.Point(590, 417);
+            this.sendButton.Location = new System.Drawing.Point(589, 491);
             this.sendButton.Name = "sendButton";
             this.sendButton.Size = new System.Drawing.Size(25, 25);
             this.sendButton.TabIndex = 14;
@@ -147,10 +152,10 @@
             this.propertyName,
             this.propertyValue,
             this.propertyType});
-            this.currentJsonView.Location = new System.Drawing.Point(359, 224);
+            this.currentJsonView.Location = new System.Drawing.Point(358, 310);
             this.currentJsonView.MultiSelect = false;
             this.currentJsonView.Name = "currentJsonView";
-            this.currentJsonView.Size = new System.Drawing.Size(225, 218);
+            this.currentJsonView.Size = new System.Drawing.Size(225, 208);
             this.currentJsonView.TabIndex = 17;
             this.currentJsonView.UseCompatibleStateImageBehavior = false;
             this.currentJsonView.View = System.Windows.Forms.View.Details;
@@ -172,7 +177,7 @@
             // 
             // removePropertyButton
             // 
-            this.removePropertyButton.Location = new System.Drawing.Point(590, 255);
+            this.removePropertyButton.Location = new System.Drawing.Point(589, 341);
             this.removePropertyButton.Name = "removePropertyButton";
             this.removePropertyButton.Size = new System.Drawing.Size(25, 25);
             this.removePropertyButton.TabIndex = 18;
@@ -186,7 +191,7 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
-            this.savedJsonView.Location = new System.Drawing.Point(359, 10);
+            this.savedJsonView.Location = new System.Drawing.Point(358, 83);
             this.savedJsonView.Name = "savedJsonView";
             this.savedJsonView.Size = new System.Drawing.Size(225, 208);
             this.savedJsonView.TabIndex = 19;
@@ -207,11 +212,61 @@
             // 
             this.columnHeader3.Text = "Type";
             // 
+            // receivedDataListView
+            // 
+            this.receivedDataListView.FormattingEnabled = true;
+            this.receivedDataListView.ItemHeight = 12;
+            this.receivedDataListView.Location = new System.Drawing.Point(620, 83);
+            this.receivedDataListView.Name = "receivedDataListView";
+            this.receivedDataListView.Size = new System.Drawing.Size(110, 208);
+            this.receivedDataListView.TabIndex = 20;
+            this.receivedDataListView.SelectedIndexChanged += new System.EventHandler(this.receivedDataListView_SelectedIndexChanged);
+            // 
+            // receivedDataView
+            // 
+            this.receivedDataView.Location = new System.Drawing.Point(736, 83);
+            this.receivedDataView.Multiline = true;
+            this.receivedDataView.Name = "receivedDataView";
+            this.receivedDataView.Size = new System.Drawing.Size(225, 208);
+            this.receivedDataView.TabIndex = 21;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(243, 64);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 12);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Send Log";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(618, 65);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 12);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Receive Log";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 65);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 12);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "Event Log";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(949, 455);
+            this.ClientSize = new System.Drawing.Size(974, 526);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.receivedDataView);
+            this.Controls.Add(this.receivedDataListView);
             this.Controls.Add(this.savedJsonView);
             this.Controls.Add(this.removePropertyButton);
             this.Controls.Add(this.currentJsonView);
@@ -258,6 +313,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ListBox receivedDataListView;
+        private System.Windows.Forms.TextBox receivedDataView;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 

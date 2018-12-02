@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace JSONClient {
     public partial class MainForm : Form, SocketClient.ISocketEventListener {
@@ -11,6 +12,7 @@ namespace JSONClient {
         private SocketClientAdapter socketClientAdapter = null;
 
         private List<JsonData> savedJsonList = null;
+        private List<string> receivedDataList = null;
 
         public MainForm() {
             InitializeComponent();
@@ -23,6 +25,7 @@ namespace JSONClient {
             socketClientAdapter.StartDataReceiveCorutine();
 
             savedJsonList = new List<JsonData>();
+            receivedDataList = new List<string>();
         }
 
         private void SendCurrentJson() {
@@ -96,6 +99,14 @@ namespace JSONClient {
             }
         }
 
+        private void AddReceivedData(string data) {
+            string title = data.Replace("\n", " ").Substring(0, data.Length > 10 ? 10 : data.Length) + "...";
+
+;           receivedDataListView.Items.Add(title);
+            receivedDataList.Add(data);
+            receivedDataView.Text = data;
+        }
+
         public void OnConnected() {
             AppendEventLog("Connected.");
         }
@@ -110,7 +121,14 @@ namespace JSONClient {
 
         public void OnData(byte[] buffer) {
             string msg = Encoding.UTF8.GetString(buffer);
-            JObject jobj = JObject.Parse(msg);
+            try {
+                JObject jobj = JObject.Parse(msg);
+                AddReceivedData(jobj.ToString());
+                AppendEventLog("Received JSON.");
+            } catch (JsonReaderException) {
+                AddReceivedData(msg);
+                AppendEventLog("Received message.");
+            }
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e) {
@@ -189,6 +207,10 @@ namespace JSONClient {
 
             });
             form.ShowDialog();
+        }
+        
+        private void receivedDataListView_SelectedIndexChanged(object sender, EventArgs e) {
+            receivedDataView.Text = receivedDataList[receivedDataListView.SelectedIndex];
         }
 
         public class JsonData {
